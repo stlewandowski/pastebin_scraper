@@ -1,5 +1,5 @@
-#Pastebin scraper in Ruby
-###This is based off the old scraping API available to a 'lifetime' Pastebin member.
+**Pastebin scraper in Ruby**
+This is based off the old scraping API available to a 'lifetime' Pastebin member.
 Description of functions:
 1. Each minute, pull the 100 most recent pastes from Pastebin.
 2. Using Redis as a cache, check each of these 100 keys and see if they have already been added to the database.
