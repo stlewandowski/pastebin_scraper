@@ -1,4 +1,5 @@
 **Pastebin scraper in Ruby**
+
 This is based off the old scraping API available to a 'lifetime' Pastebin member.
 Description of functions:
 1. Each minute, pull the 100 most recent pastes from Pastebin.
