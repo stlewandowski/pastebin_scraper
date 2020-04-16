@@ -1,0 +1,6 @@
+redis_host: 'localhost'
+mongo_hosts: ['<domain>:27017',
+              '<domain>:27017',
+              '<domain>:27017' ]
+mongo_db: '<db name>'
+replica_set: '<rs name>'
