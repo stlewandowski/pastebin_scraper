@@ -61,9 +61,8 @@ class PBScrape
       uri = URI.parse(url2)
       response = Net::HTTP.get_response(uri)
       if response.code == '200'
-        raw_response = response.body
-        praw_response = raw_response.to_s.encode('UTF-8', invalid: :replace, undef: :replace, replace: '?')
-        hsh[:raw_paste] = praw_response
+        raw_response = response.body.force_encoding("UTF-8")
+        hsh[:raw_paste] = raw_response
         @mongo_docs.push(hsh)
       else
         error = 'Error' + response.code
