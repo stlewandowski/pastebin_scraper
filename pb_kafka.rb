@@ -1,5 +1,6 @@
 require 'kafka'
 require 'yaml'
+require 'json'
 
 class PBKafka
   def initialize
@@ -15,7 +16,8 @@ class PBKafka
   def send(doc_array)
     producer = @kafka.producer
     length = doc_array.length()
-    doc_array.each do |jsonItem|
+    doc_array.each do |item|
+      jsonItem = JSON.dump(item)
       producer.produce(jsonItem, topic: @topic)
     end
     producer.deliver_messages
