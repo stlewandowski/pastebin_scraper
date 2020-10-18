@@ -3,6 +3,7 @@
 require_relative 'pb_scrape'
 require_relative 'pb_redis'
 require_relative 'pb_mongo'
+require_relative 'pb_kafka'
 
 class PBController
   def run
@@ -11,6 +12,7 @@ class PBController
     pb_val = x.pb_values
     y = PBRedis.new
     z = PBMongo.new
+    k = PBKafka.new
     mongo_ins_array = []
     pb_val.each do |hsh|
       hsh_key = hsh['key']
@@ -22,6 +24,7 @@ class PBController
     x.scrape_pb_docs(mongo_ins_array)
     pb_doc_array = x.mongo_values
     z.insert(pb_doc_array)
+    k.send(pb_doc_array)
     z.close
     # log info:
     # orig_len = x.pb_length

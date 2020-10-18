@@ -4,3 +4,6 @@ mongo_hosts: ['<domain>:27017',
               '<domain>:27017' ]
 mongo_db: '<db name>'
 replica_set: '<rs name>'
+kafka_brokers: ['<kafka broker>:9092', '<kafka broker>:9092', '<kafka broker>:9092']
+kafka_topic: '<topic>'
+kafka_client_id: '<client id>'
